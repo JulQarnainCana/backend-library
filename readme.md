@@ -1,6 +1,6 @@
 # 📚 Library Borrowing and Reservation API
 
-A robust backend system designed to manage library operations, including book inventory, borrowing workflows, and user reservations. This API features secure authentication, administrative controls, and comprehensive CRUD functionality.
+I built a solid backend system that makes running a library much easier. It handles everything from tracking book stock to managing how people borrow and reserve books. I also made sure it's secure with a login system, gave admins special controls, and set it up so you can easily add, view, change, or delete any data in the system
 
 ---
 
