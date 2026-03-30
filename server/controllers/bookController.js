@@ -2,8 +2,91 @@ const Book = require("../models/Book");
 
 const getBooks = async (req, res) => {
   try {
-    const books = await Book.find().sort({ createdAt: -1 });
-    res.status(200).json(books);
+    const {
+      search,
+      title,
+      author,
+      isbn,
+      available,
+      sortBy = "createdAt",
+      order = "desc",
+      page = 1,
+      limit = 10
+    } = req.query;
+
+    const query = {};
+
+    // Search by title, author, isbn, or description
+    if (search) {
+      query.$or = [
+        { title: { $regex: search, $options: "i" } },
+        { author: { $regex: search, $options: "i" } },
+        { isbn: { $regex: search, $options: "i" } },
+        { description: { $regex: search, $options: "i" } }
+      ];
+    }
+
+    // Individual filters
+    if (title) {
+      query.title = { $regex: title, $options: "i" };
+    }
+
+    if (author) {
+      query.author = { $regex: author, $options: "i" };
+    }
+
+    if (isbn) {
+      query.isbn = { $regex: isbn, $options: "i" };
+    }
+
+    // Availability filter
+    if (available !== undefined) {
+      if (available === "true") {
+        query.availableCopies = { $gt: 0 };
+      } else if (available === "false") {
+        query.availableCopies = 0;
+      }
+    }
+
+    // Allowed sort fields
+    const allowedSortFields = ["createdAt", "title", "author", "copies", "availableCopies"];
+    const finalSortBy = allowedSortFields.includes(sortBy) ? sortBy : "createdAt";
+    const sortOrder = order === "asc" ? 1 : -1;
+
+    const pageNumber = Math.max(Number(page) || 1, 1);
+    const limitNumber = Math.max(Number(limit) || 10, 1);
+    const skip = (pageNumber - 1) * limitNumber;
+
+    const totalBooks = await Book.countDocuments(query);
+
+    const books = await Book.find(query)
+      .sort({ [finalSortBy]: sortOrder })
+      .skip(skip)
+      .limit(limitNumber);
+
+    res.status(200).json({
+      totalBooks,
+      currentPage: pageNumber,
+      totalPages: Math.ceil(totalBooks / limitNumber),
+      count: books.length,
+      books
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const getBookById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const book = await Book.findById(id);
+
+    if (!book) {
+      return res.status(404).json({ message: "Book not found" });
+    }
+
+    res.status(200).json(book);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -181,6 +264,7 @@ const deleteBook = async (req, res) => {
 
 module.exports = {
   getBooks,
+  getBookById,
   addBook,
   updateBook,
   deleteBook
