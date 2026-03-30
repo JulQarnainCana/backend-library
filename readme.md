@@ -80,7 +80,7 @@ Follow these steps to get your development environment running:
 
 ```bash
 # 1. Clone the repository and enter the directory
-git clone [<repository-url>](https://github.com/JulQarnainCana/backend-library)
+git clone (https://github.com/JulQarnainCana/backend-library)
 cd backend-onic-litex
 
 # 2. Install dependencies
