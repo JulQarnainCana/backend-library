@@ -69,6 +69,7 @@ Interactive documentation for testing and integrating the API endpoints.
 * **Runtime:** Node.js
 * **Framework:** Express.js
 * **Database:** MongoDB
+* **ODM:** Mongoose
 * **Security:** JWT (JSON Web Tokens)
 * **Documentation:** Swagger UI
 
