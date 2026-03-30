@@ -74,25 +74,16 @@ Interactive documentation for testing and integrating the API endpoints.
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ Installation 
 
 Follow these steps to get your development environment running:
 
 ```bash
-# 1. Clone the repository and enter the directory
-git clone (https://github.com/JulQarnainCana/backend-library)
-cd backend-onic-litex
 
-# 2. Install dependencies
+# 1. Install dependencies
 npm install
 
-# 3. Set up environment variables (Create a .env file)
-# PORT=5000
-# MONGO_URI=your_mongodb_connection_string
-# JWT_SECRET=your_secret_key
-
-# 4. Run the application
+# 2. Run the application
 # For development:
 npm run dev
-# For production:
-npm start
+
