@@ -1,6 +1,6 @@
 # 📚 Library Borrowing and Reservation API
 
-We built a backend system to make library management much easier. It handles everything like tracking book stocks and managing how users borrow or reserve books. We also added a secure login system and gave admins special controls so they can easily add, update, or delete any data in the system.
+We built a backend to make library management much easier. It handles everything like tracking book stocks and managing how users borrow or reserve books. We also added a secure login system and gave admins special controls so they can easily add, update, or delete any data in the system.
 
 ---
 
