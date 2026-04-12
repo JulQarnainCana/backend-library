@@ -1,0 +1,137 @@
+/* --- src/styles/Modal.css --- */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+.modal-content {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 550px; /* Nilakihan ko konti ang max-width para magkasya ang image sa tabi */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #1a1a1a;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #1a1a1a;
+}
+
+/* --- BAGONG STYLES PARA SA IMAGE AT TEXT --- */
+.modal-body {
+  display: flex; /* Para magkatabi ang image at text */
+  gap: 1.5rem; /* Space sa pagitan ng image at text */
+  align-items: flex-start; /* Simula sa taas ang alignment */
+}
+
+.modal-image-wrapper {
+  flex: 0 0 100px; /* Fixed width para sa image container, hindi siya lalaki o liliit */
+}
+
+.modal-book-cover {
+  width: 100px; /* Heto ang sukat ng image, hindi siya malaki */
+  height: 150px; /* Proportionate height */
+  object-fit: cover; /* Para hindi ma-stretch ang image */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.modal-text-details {
+  flex: 1; /* Sasakupin ang natitirang space */
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* Space sa pagitan ng bawat <p> tag */
+}
+
+.modal-body p {
+  margin: 0; /* Tinanggal ang default margin */
+  line-height: 1.6;
+  color: #444;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.modal-body p strong {
+  color: #1a1a1a;
+}
+
+.available-copies span {
+  background-color: #e9f0ee;
+  color: #245041;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* --- DATING STYLES --- */
+.borrow-btn {
+  background-color: #245041;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.borrow-btn:hover {
+  background-color: #1a3d31;
+}
+
+.borrow-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive adjust para sa mobile */
+@media (max-width: 600px) {
+  .modal-body {
+    flex-direction: column; /* Magiging top-to-bottom sa mobile */
+    align-items: center;
+    text-align: center;
+  }
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
