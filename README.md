@@ -55,6 +55,18 @@ The core logic for handling book transactions and user requests.
 
 ---
 
+## 📅 Development Roadmap & Database Design
+
+This section outlines the development process and the architectural planning of the system.
+
+### Database Schema
+Below is the visual representation of the database design, including relationships between Users, Books, Loans, and Reservations.
+
+![Database Schema](images/database.png) 
+
+
+---
+
 ### 📑 API Documentation (Swagger)
 Interactive documentation for testing and integrating the API endpoints.
 
@@ -68,7 +80,7 @@ Interactive documentation for testing and integrating the API endpoints.
 
 * **Runtime:** Node.js
 * **Framework:** Express.js
-* **Database:** MongoDB
+* **Database:** MongoDB Atlas
 * **ORM:** Mongoose
 * **Security:** JWT (JSON Web Tokens)
 * **Documentation:** Swagger UI
@@ -95,5 +107,6 @@ npm install
 # 4. Run the application
 # For development:
 npm run dev
+
 # For production:
 npm start
