@@ -55,9 +55,7 @@ The core logic for handling book transactions and user requests.
 
 ---
 
-## 📅 Development Roadmap & Database Design
-
-This section outlines the development process and the architectural planning of the system.
+## Database Design
 
 ### Database Schema
 Below is the visual representation of the database design, including relationships between Users, Books, Loans, and Reservations.
